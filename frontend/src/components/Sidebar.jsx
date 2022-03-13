@@ -4,6 +4,7 @@ import {RiHomeFill} from "react-icons/ri";
 import {IoIosArrowForward} from "react-icons/io";
 import {MdExplore} from "react-icons/md"
 import phantomshare from "../assests/phantomshare.png";
+import Masonry_sidebar from "./Masonary/Masonry_sidebar";
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
@@ -41,7 +42,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
           <MdExplore />
           Explore
         </NavLink>
-        <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover cateogries</h3>
+        <h3 className="mt-2 px-5 text-base 2xl:text-xl">Popular Pins</h3>
         {/* {categories.map((category) => (
           <NavLink
             to={`/category/${category.name}`}
