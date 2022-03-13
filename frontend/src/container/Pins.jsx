@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Navbar() {
+function Pins() {
   return (
     <div>
-      navbar
+      
     </div>
   )
 }
 
-export default Navbar
+export default Pins
