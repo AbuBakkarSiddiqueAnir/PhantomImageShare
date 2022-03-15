@@ -43,17 +43,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
           Explore
         </NavLink>
         <h3 className="mt-2 px-5 text-base 2xl:text-xl">Popular Pins</h3>
-        {/* {categories.map((category) => (
-          <NavLink
-            to={`/category/${category.name}`}
-            className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
-            onClick={handleCloseSidebar}
-            key={category.name}
-          >
-            <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" />
-            {category.name}
-          </NavLink>
-        ))} */}
+       <p>here popular photos</p>
       </div>
     </div>
     {user && (
@@ -62,7 +52,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
         className="flex my-5 mb-3 gap-2 p-2 items-center bg-white rounded-lg shadow-lg mx-3"
         onClick={handleCloseSidebar}
       >
-        <img src={user.image} className="w-10 h-10 rounded-full" alt="user-profile" />
+        {/* <img src={user.image} className="w-10 h-10 rounded-full" alt="user-profile" /> */}
         <p>{user.userName}</p>
         <IoIosArrowForward />
       </Link>
