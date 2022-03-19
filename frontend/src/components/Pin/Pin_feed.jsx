@@ -25,11 +25,16 @@ const Pin = ({ pin }) => {
   };
 
   let alreadySaved = pin?.thumbsUp?.filter(
-    (item) => item?.postedBy?._id === user?.googleId
+    (item) => {
+      //console.log(item?.postedBy?._id ,user?.googleId)
+      return item?.postedBy?._id === user?.googleId
+    }
   );
+  alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
   const savePin = (id) => {
-    if (!alreadySaved?.length) {
+   
+    if (alreadySaved?.length === 0) {
       setSavingPost(true);
 
       client
@@ -47,14 +52,14 @@ const Pin = ({ pin }) => {
         ])
         .commit()
         .then(() => {
-          console.log("saved");
+          setSavingPost(true);
         });
     }
   };
 
   useEffect(() => {
-    console.log(alreadySaved);
-    if (!!alreadySaved) {
+  
+    if (alreadySaved?.length > 0) {
       setSavingPost(true);
     }
   }, []);
@@ -114,7 +119,7 @@ const Pin = ({ pin }) => {
                 >
                   {" "}
                   <BsFillArrowUpRightCircleFill />
-                  {destination?.slice(8, 17)}...
+                  Destination
                 </a>
               ) : undefined}
               {postedBy?._id === user?.googleId && (
@@ -137,11 +142,11 @@ const Pin = ({ pin }) => {
         to={`/user-profile/${postedBy?._id}`}
         className="flex gap-2 mt-2 items-center"
       >
-        <img
+        {/* <img
           className="w-8 h-8 rounded-full object-cover"
           src={postedBy?.image}
           alt="user-profile"
-        />
+        /> */}
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
       </Link>
     </div>
