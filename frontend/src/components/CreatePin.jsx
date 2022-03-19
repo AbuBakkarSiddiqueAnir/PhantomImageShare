@@ -12,9 +12,9 @@ function CreatePin({user}) {
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
   const [destination, setDestination] = useState();
-  const [fields, setFields] = useState(true);
+  const [fields, setFields] = useState();
   const [category, setCategory] = useState();
-  const [imageAsset, setImageAsset] = useState(true);
+  const [imageAsset, setImageAsset] = useState();
   const [wrongImageType, setWrongImageType] = useState(false);
 
   const navigate = useNavigate();
@@ -40,15 +40,51 @@ function CreatePin({user}) {
   }
 
 
+const savePin = () => {
+  if(title && about && destination && imageAsset?._id && category) {
+    const doc = {
+      _type : "pin",
+      title,
+      about,
+      destination,
+      image: {
+        _type : "image",
+        asset:{
+          _type: 'reference',
+          _ref: imageAsset?._id,
+        }
+       
+      },
+      userId: user?._id,
+      postedBy: {
+        _type: "postedBy",
+        _ref: user?._id
+      },
+      category
+    };
 
-  
+    client.create(doc).then((data) => {
+      navigate("/")
+    })
+  } else {
+    setFields(true);
+
+    setTimeout(
+      () => {
+        setFields(false);
+      },
+      2000
+    )
+  }
+}
+
 
 
 
   return (
     <div className='flex flex-col justify-content items-center mt-5 lg:h-4/5'>
       {fields && (
-        <p >Please add all the fields</p>
+        <p className='text-red-500 mb-5 text-xl transition-all duration-900 ease-in-out '>Please add all the fields</p>
       )}
       <div className='flex lg:flex-row flex-col justify-center bg-white lg:p-5 p-3 lg:w-4/5 w-full'>
         <div className='bg-secondaryColor p-3 flex flex-0.7 w-full'>
@@ -62,7 +98,7 @@ function CreatePin({user}) {
             <p>It&apos;s wrong file type.</p>
           )
         }{
-          imageAsset ? (
+          !imageAsset ? (
             <label>
                <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col justify-center items-center">
@@ -157,7 +193,7 @@ function CreatePin({user}) {
             <div className="flex justify-end items-end mt-5">
               <button
                 type="button"
-             
+                onClick={savePin}
                 className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
               >
                 Save Pin
