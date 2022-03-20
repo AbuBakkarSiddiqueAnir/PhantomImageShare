@@ -65,6 +65,7 @@ const savePin = () => {
 
     client.create(doc).then((data) => {
       navigate("/")
+      window.location.reload()
     })
   } else {
     setFields(true);
