@@ -238,10 +238,9 @@ export const userSavedPinsQuery = (userId) => {
 };
 
 
-export const mostSavedPinQuery = () => {
-  const query =``
-}
-
-
+export const usersQuery = () => {
+  const query = `*[_type == "user"]`
+  return query;
+};
 
 
