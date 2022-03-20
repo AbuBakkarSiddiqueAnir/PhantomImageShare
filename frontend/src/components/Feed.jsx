@@ -19,7 +19,7 @@ const catagory = useParams();
     if(catagory.cateforyId){
       const query = searchQuery(catagory.cateforyId);
       client.fetch(query).then((data)=> {
-        console.log("searchquery", data)
+      
         setPins(data)
         setLoading(false)
       })
