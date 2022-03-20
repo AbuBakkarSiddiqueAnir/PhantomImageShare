@@ -5,9 +5,14 @@ import {IoIosArrowForward} from "react-icons/io";
 import {MdExplore} from "react-icons/md"
 import phantomshare from "../assests/phantomshare.png";
 import Masonry_sidebar from "./Masonary/Masonry_sidebar";
+import { categories } from '../utils/data';
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
+
+const isNotActiveStyle = 'flex items-center py-2 px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
+const isActiveStyle = 'flex items-center px-5 gap-3 py-2   border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
+
+// const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
+// const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
 function Sidebar({closeToggle,toogleSidebar, user}) {
   const [pins, setPins] = useState()
@@ -15,6 +20,11 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
   const handleCloseSidebar = () => {
     closeToggle(!toogleSidebar)
   }
+
+  useEffect(()=>{
+
+  },[])
+
 
   return (
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
@@ -45,11 +55,22 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
           <MdExplore />
           Explore
         </NavLink>
-        <h3 className="mt-2 px-5 text-base 2xl:text-xl">Popular Pins</h3>
-       <p>here popular photos</p>
-       <div className='w-full h-auto mx-2' >
-       <Masonry_sidebar pins={pins}/>
-       </div>
+        <div>
+        <h3 className="my-2 px-5 text-base 2xl:text-xl">Discover cateogries</h3>
+          {categories.map((category) => (
+            <NavLink
+              to={`/category/${category.name}`}
+              className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
+              onClick={handleCloseSidebar}
+              key={category.name}
+            >
+              <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" />
+              {category.name}
+            </NavLink>
+          ))}
+        </div>
+     
+      
       </div>
     </div>
     {user && (

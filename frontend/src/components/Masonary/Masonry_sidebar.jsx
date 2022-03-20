@@ -19,3 +19,5 @@ function Masonry_sidebar ({pins}){
         </Masonry>
     )
 }
+
+export default Masonry_sidebar

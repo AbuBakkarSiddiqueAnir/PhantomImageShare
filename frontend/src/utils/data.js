@@ -139,7 +139,7 @@ export const pinDetailQuery = (pinId) => {
             userName,
             image
           },
-         save[]{
+          thumbsUp[]{
             postedBy->{
               _id,
               userName,
@@ -174,7 +174,7 @@ export const pinDetailMorePinQuery = (pin) => {
             userName,
             image
           },
-          save[]{
+          thumbsUp[]{
             _key,
             postedBy->{
               _id,
@@ -201,7 +201,7 @@ export const userCreatedPinsQuery = (userId) => {
             userName,
             image
           },
-          save[]{
+          thumbsUp[]{
             postedBy->{
               _id,
               userName,
@@ -213,7 +213,7 @@ export const userCreatedPinsQuery = (userId) => {
 };
 
 export const userSavedPinsQuery = (userId) => {
-  const query = `*[_type == 'pin' && '${userId}' in save[].userId ] | order(_createdAt desc) {
+  const query = `*[_type == 'pin' && '${userId}' in thumbsUp[].userId ] | order(_createdAt desc) {
           image{
             asset->{
               url
@@ -226,7 +226,7 @@ export const userSavedPinsQuery = (userId) => {
             userName,
             image
           },
-          save[]{
+          thumbsUp[]{
             postedBy->{
               _id,
               userName,
@@ -236,3 +236,12 @@ export const userSavedPinsQuery = (userId) => {
         }`;
   return query;
 };
+
+
+export const mostSavedPinQuery = () => {
+  const query =``
+}
+
+
+
+
