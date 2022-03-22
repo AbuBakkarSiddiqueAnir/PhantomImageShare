@@ -3,7 +3,7 @@ import React from 'react'
 function Pin_sidebar({pin}) {
   return (
     <div>
-      pin
+      <img src={pin.urls.small}/>
     </div>
   )
 }

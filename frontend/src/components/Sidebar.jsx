@@ -4,7 +4,7 @@ import {RiHomeFill} from "react-icons/ri";
 import {IoIosArrowForward} from "react-icons/io";
 import {MdExplore} from "react-icons/md"
 import phantomshare from "../assests/phantomshare.png";
-import Masonry_sidebar from "./Masonary/Masonry_sidebar";
+
 import { categories , usersQuery} from '../utils/data';
 import {client, urlFor } from "../client"
 
