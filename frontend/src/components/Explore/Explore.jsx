@@ -48,6 +48,10 @@ function Explore({ exploreBool, setExploreBool,user }) {
     };
   }, [searchTerm]);
 
+  useEffect(()=>{
+  setSearchTerm(["random", "nm", "man", "rando", "nature","wallpaper", "ca", "do","ch", "oc", "river"][Math.floor(10*Math.random())])
+  },[])
+
   return (
     <div className="">
       <div className="flex justify-start my-7 items-center px-2 rounded-md bg-white border-none outline-none focus-within:shadow-lg ">

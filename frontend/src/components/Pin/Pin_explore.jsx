@@ -88,7 +88,7 @@ function Pin_sidebar({ pin, category, user }) {
                   >
                     <AiFillSave className="w-4 h-4" />
                   </button>
-                  <h2 className="font-bold">Save to my profile</h2>
+                  <h2 className="font-bold ">Save to my profile</h2>
                 </div>
               </div>
             ) : (

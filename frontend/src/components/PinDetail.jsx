@@ -72,7 +72,7 @@ function PinDetail({ user }) {
           style={{ maxWidth: "1500px", borderRadius: "32px" }}
         >
           <div className="flex justify-center items-center md:items-start flex-initial">
-           {pinDetail?(<div>
+           {pinDetail.image?(<div>
             <img
               className="rounded-t-3xl rounded-b-lg"
               src={pinDetail?.image && urlFor(pinDetail?.image).url()}
@@ -161,7 +161,7 @@ function PinDetail({ user }) {
       ) : (
         <>
            <Spinner message="Loading more pins" />
-           {console.log(pins,setPins)}
+          
         </>
      
       )}
