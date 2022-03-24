@@ -10,8 +10,8 @@ Application features:
   > search images of their choice from internet and save to their account. 
 
 Technologies used : 
-  > For the frontend, Reactjs library 
-  > Sanity gave the backend support
+  > For the frontend Reactjs library..
+  > Sanity gave the backend support..
   > Graphql api for data fetching
 
 
