@@ -14,11 +14,11 @@ const breakpointColumnsObj = {
   };
 
 
-function Masonry_sidebar ({pins}){
+function Masonry_sidebar ({pins, catagory, user}){
     return(
         
         <Masonry className="flex animate-slide-fwd" breakpointCols={breakpointColumnsObj}>
-            {pins?.map((pin)=> <Pin_explore key={pin._id} pin={pin} className="w-max"/>)}
+            {pins?.map((pin)=> <Pin_explore user={user} category={catagory} key={pin._id} pin={pin} className="w-max"/>)}
 
         </Masonry>
     )

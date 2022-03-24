@@ -72,11 +72,19 @@ function PinDetail({ user }) {
           style={{ maxWidth: "1500px", borderRadius: "32px" }}
         >
           <div className="flex justify-center items-center md:items-start flex-initial">
+           {pinDetail?(<div>
             <img
               className="rounded-t-3xl rounded-b-lg"
               src={pinDetail?.image && urlFor(pinDetail?.image).url()}
               alt={pinDetail.title}
             />
+           </div>):(
+            <img
+              className="rounded-t-3xl rounded-b-lg"
+              src={pinDetail?.destination}
+              alt={pinDetail.title}
+            />
+           )} 
           </div>
           <div className="w-full p-5 flex-1 xl:min-w-620">
             <div className="flex items-center justify-between">

@@ -4,9 +4,10 @@ import UnsplashApi from "./Api/Api";
 import Mesonry_explore from "../Masonary/Masonry_explore";
 import { IoMdSearch } from "react-icons/io";
 
-function Explore({ exploreBool, setExploreBool }) {
+function Explore({ exploreBool, setExploreBool,user }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [images, setImages] = useState([]);
+  const [catagory, setCatagory] = useState("")
 
   const loc = useLocation();
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function Explore({ exploreBool, setExploreBool }) {
   }, []);
 
   useEffect(() => {
+    setCatagory(searchTerm)
     const onSearchSubmit = async () => {
       try {
         const unsplashData = await UnsplashApi.get("/search/photos", {
@@ -58,7 +60,7 @@ function Explore({ exploreBool, setExploreBool }) {
         />
       </div>
 
-      <Mesonry_explore pins={images} />
+      <Mesonry_explore  user={user} catagory={catagory} pins={images} />
     </div>
   );
 }

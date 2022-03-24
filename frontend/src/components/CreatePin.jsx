@@ -22,6 +22,7 @@ function CreatePin({user}) {
 
   const uploadImage = (e) => {
     const selectedFile = e.target.files[0];
+    console.log(selectedFile)
 
     if(selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff'){
       setWrongImageType(false);
