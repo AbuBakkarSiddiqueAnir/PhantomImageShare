@@ -9,8 +9,8 @@ import { categories , usersQuery} from '../utils/data';
 import {client, urlFor } from "../client"
 
 
-const isNotActiveStyle = 'flex items-center py-2 px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
-const isActiveStyle = 'flex items-center px-5 gap-3 py-2   border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
+const isNotActiveStyle = 'flex text-white items-center py-2 px-5 gap-3  hover:text-black transition-all duration-200 ease-in-out capitalize';
+const isActiveStyle = 'flex text-white items-center px-5 gap-3 py-2   border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
 // const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 // const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
@@ -33,17 +33,19 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
 
 
   return (
-    <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 hide-scrollbar">
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-between h-full overflow-y-scroll min-w-210 hide-scrollbar " style={{backgroundColor:"#005A5A"}} >
+    <div className="flex flex-col " >
       <Link
         to="/"
         className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
         onClick={handleCloseSidebar}
       >
         {/* <img src={phantomshare} alt="logo" className="w-full" /> */}
-        <p className='text-2xl'>Phantomshare</p>
+        <Link to="/">
+            <img src={phantomshare} alt="phantomshare_logo" className="w-40"/>
+          </Link>
       </Link>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 ">
 
         <NavLink
           to="/"
@@ -64,7 +66,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
         </NavLink>
         
         <div>
-        <h3 className="my-2 px-5 text-base 2xl:text-xl">Users</h3>
+        <h3 className="my-2 px-5 text-base 2xl:text-xl text-white">Users</h3>
 
           {users.map((user) => (
             <NavLink
@@ -74,7 +76,8 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
               key={user.userName}
             >
               <img src={user.image} className="w-8 h-8 rounded-full shadow-sm" />
-              {user.userName}
+              <span className='text-white'>{user.userName}</span>
+              
             </NavLink>
             
           ))}

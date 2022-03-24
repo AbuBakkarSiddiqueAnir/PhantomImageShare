@@ -7,12 +7,12 @@ function Pins({user}) {
   const [searchTerm, setSearchTerm] = useState("");
   const [exploreBool, setExploreBool] = useState(true)
   return (
-    <div className='px-2 md:px-5'>
-      <div className='bg-gray-50 mb-2'>
+    <div className='px-2 md:px-5 relative '>
+      <div className='bg-gray-50 mb-2 '>
         <Navbar searchTerm={searchTerm} exploreBool={exploreBool} setExploreBool={setExploreBool}  setSearchTerm={setSearchTerm} user={user && user}/>
 
       </div>
-      <div className='h-full'>
+      <div className='h-full mt-4'>
           <Routes>
           <Route path='/' element={<Feed/>}/>
           <Route path='/category/:cateforyId' element={<Feed/>}/>

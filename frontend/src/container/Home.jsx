@@ -31,15 +31,15 @@ function Home() {
       <div className='hidden md:flex h-screen flex-initial'>
         <Sidebar/>
       </div>
-      <div className='flex md:hidden flex-row bg-green-800'>
-        <div className='p-2 w-full flex flex-row justify-between items-center shadow-md'>
+      <div className='flex md:hidden flex-row ' style={{backgroundColor:"#005A5A"}}>
+        <div className='p-2 py-2 w-full flex flex-row justify-between items-center shadow-md'>
           <HiMenu fontSize={40} className="cursor-pointer" onClick={()=>setToggleSidebar(!toogleSidebar)}/>
           <Link to="/">
-            <img src={phantomshare} alt="phantomshare_logo" className="w-28"/>
+            <img src={phantomshare} alt="phantomshare_logo" className="w-40"/>
           </Link>
           <Link to={`user-profile/${user?._id}`}>
            
-          {/* <img src={user?.image} alt="user" className="w-14 rounded-lg"/> */}
+          <img src={user?.image} alt="user" className="w-14 rounded-lg"/>
           </Link>
 
         </div>
