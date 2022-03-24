@@ -9,8 +9,8 @@ import { categories , usersQuery} from '../utils/data';
 import {client, urlFor } from "../client"
 
 
-const isNotActiveStyle = 'flex text-white items-center py-2 px-5 gap-3  hover:text-black transition-all duration-200 ease-in-out capitalize';
-const isActiveStyle = 'flex text-white items-center px-5 gap-3 py-2   border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
+const isNotActiveStyle = 'flex text-white items-center py-2 px-5 gap-3   transition-all duration-200 ease-in-out capitalize';
+const isActiveStyle = 'flex text-white items-center px-5 gap-3 py-2 rounded-lg  border-r-8 border-white  transition-all duration-200 ease-in-out capitalize';
 
 // const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 // const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
@@ -40,7 +40,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
         className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
         onClick={handleCloseSidebar}
       >
-        {/* <img src={phantomshare} alt="logo" className="w-full" /> */}
+     
         <Link to="/">
             <img src={phantomshare} alt="phantomshare_logo" className="w-40"/>
           </Link>

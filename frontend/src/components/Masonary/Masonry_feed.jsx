@@ -16,7 +16,7 @@ function Masonry_feed({pins}) {
 
   if(pins?.length<1){
     return(
-      <div className='flex justify-content h-full w-full'>There is no pins available</div>
+      <div className='flex justify-center items-center h-full font-bold text-3xl mt-32 mx-3 w-full'>There is no pins available with this tag</div>
     ) 
   } 
   return (
