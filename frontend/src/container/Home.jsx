@@ -40,7 +40,7 @@ function Home() {
           <HiMenu
             fontSize={40}
             className="cursor-pointer"
-            onClick={() => setToggleSidebar(!toogleSidebar)}
+            onClick={() => setToggleSidebar(true)}
           />
           <Link to="/">
             <img src={phantomshare} alt="phantomshare_logo" className="w-40" />
@@ -58,7 +58,7 @@ function Home() {
                 onClick={() => setToggleSidebar(false)}
               />
             </div>
-            <Sidebar closeToggle={setToggleSidebar} user={user && user} />
+            <Sidebar setToggleSidebar={setToggleSidebar} user={user && user} />
           </div>
         )}
       </div>

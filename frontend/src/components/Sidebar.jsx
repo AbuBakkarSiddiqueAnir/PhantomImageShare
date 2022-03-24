@@ -13,11 +13,11 @@ const isNotActiveStyle =
 const isActiveStyle =
   "flex text-white items-center px-5 gap-3 py-2 rounded-lg  border-r-8 border-white  transition-all duration-200 ease-in-out capitalize";
 
-function Sidebar({ closeToggle, toogleSidebar, user }) {
+function Sidebar({ setToggleSidebar, user }) {
   const [users, setUsers] = useState([]);
 
   const handleCloseSidebar = () => {
-    closeToggle(!toogleSidebar);
+    setToggleSidebar(false);
   };
 
   useEffect(() => {
