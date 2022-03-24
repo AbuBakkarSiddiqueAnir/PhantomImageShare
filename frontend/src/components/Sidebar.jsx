@@ -24,7 +24,7 @@ function Sidebar({closeToggle,toogleSidebar, user}) {
 
   useEffect(()=>{
     client.fetch(usersQuery()).then((data)=>{
-      console.log(data)
+  
       setUsers(data)
     }).catch((err)=>{
       console.log(err)
