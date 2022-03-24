@@ -38,13 +38,9 @@ function Explore() {
   return (
     <div>
       <input type="text" onChange={(e)=>setSearchTerm(e.target.value)} />
-      {
-        images.map((img)=>(
-          <div>
+  
               <Mesonry_explore pins={images}/>
-          </div>
-        ))
-      }
+  
     </div>
   )
 }
