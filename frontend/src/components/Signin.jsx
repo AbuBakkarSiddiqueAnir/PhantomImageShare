@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import shareVideo from "../assests/share.mp4";
 import phantomshare from "../assests/phantomshare.png";
-import logo_ from "../assests/logo_.png";
 import { client } from "../client";
 
 function Signin() {
@@ -55,7 +54,7 @@ function Signin() {
 
           <div className="shadow-2xl">
             <GoogleLogin
-              clientId="18946301269-ridgb1rtpo8qs6b46dam1i1b78mgomfu.apps.googleusercontent.com"
+              clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
               render={(renderProps) => (
                 <button
                   type="button"

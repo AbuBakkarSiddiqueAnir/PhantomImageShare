@@ -40,7 +40,7 @@ function Navbar({
                 onFocus={() => navigate("/search")}
               />
 
-              <h3  style={{color:"#005A5A"}} className=" font-bold">{"456+"}</h3>
+           
             </div>
             <div className="flex  gap-3">
               <Link

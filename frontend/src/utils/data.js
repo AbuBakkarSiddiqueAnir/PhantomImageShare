@@ -1,4 +1,3 @@
-
 export const categories = [
   {
     name: "cars",
@@ -68,9 +67,9 @@ export const categories = [
 ];
 
 export const userQuery = (userId) => {
-    const query = `*[_type == "user" && _id == '${userId}']`;
-    return query;
-  };
+  const query = `*[_type == "user" && _id == '${userId}']`;
+  return query;
+};
 
 export const searchQuery = (searchTerm) => {
   const query = `*[_type == "pin" && title match "${searchTerm}*" || category match '${searchTerm}*' || about match '${searchTerm}*']{
@@ -94,10 +93,9 @@ export const searchQuery = (searchTerm) => {
         image
       }
     }
-  }`
+  }`;
   return query;
-}
-
+};
 
 export const feedQuery = `*[_type == "pin"] | order(_createdAt desc){
   image{
@@ -120,7 +118,7 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc){
       image
     },
   },
-}`
+}`;
 
 export const pinDetailQuery = (pinId) => {
   const query = `*[_type == "pin" && _id == '${pinId}']{
@@ -159,7 +157,6 @@ export const pinDetailQuery = (pinId) => {
   return query;
 };
 
-
 export const pinDetailMorePinQuery = (pin) => {
   const query = `*[_type == "pin" && category == '${pin.category}' && _id != '${pin._id}' ]{
           image{
@@ -185,7 +182,6 @@ export const pinDetailMorePinQuery = (pin) => {
         }`;
   return query;
 };
-
 
 export const userCreatedPinsQuery = (userId) => {
   const query = `*[ _type == 'pin' && userId == '${userId}'] | order(_createdAt desc){
@@ -237,10 +233,7 @@ export const userSavedPinsQuery = (userId) => {
   return query;
 };
 
-
 export const usersQuery = () => {
-  const query = `*[_type == "user"]`
+  const query = `*[_type == "user"]`;
   return query;
 };
-
-
