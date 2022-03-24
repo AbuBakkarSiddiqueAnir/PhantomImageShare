@@ -5,9 +5,9 @@ import { categories } from "../utils/data";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 const isNotActiveStyle =
-  "flex rounded-2xl flex-none  bg-gray-100 items-center px-3 gap-3 text-gray-700 mx-3 hover:text-black transition-all duration-200 ease-in-out capitalize";
+  "flex rounded-2xl flex-none my-1 bg-gray-100 items-center px-3 gap-3 text-gray-700 mx-3 hover:text-black transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex text-white  rounded-2xl shadow-md  flex-none items-center bg-gray-700 px-3 mx-3 gap-3   border-black  transition-all duration-200 ease-in-out capitalize";
+  "flex text-white  rounded-2xl my-1 shadow-md  flex-none items-center bg-gray-700 px-3 mx-3 gap-3   border-black  transition-all duration-200 ease-in-out capitalize";
 
 function Navbar({
   searchTerm,
@@ -49,7 +49,7 @@ function Navbar({
               >
                 <img
                   src={user?.image}
-                  alt="user-pic"
+                  alt="User Photo"
                   className="w-14 h-12 rounded-lg "
                 />
               </Link>

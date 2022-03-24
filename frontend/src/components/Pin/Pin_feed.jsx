@@ -11,6 +11,7 @@ import { userInfo } from "../../utils/userInfo";
 const Pin = ({ pin }) => {
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
+  const [width, setWidth] = useState()
 
   const navigate = useNavigate();
 
@@ -23,6 +24,20 @@ const Pin = ({ pin }) => {
       window.location.reload();
     });
   };
+
+   const resizeDetector = () => {
+    setWidth(window.innerWidth)
+   }
+
+  useEffect(()=>{
+    console.log(width)
+    window.addEventListener("resize", resizeDetector)
+    return(() => {
+      window.removeEventListener('resize', resizeDetector);
+  })
+
+  },[width])
+
 
   let alreadySaved = pin?.thumbsUp?.filter(
     (item) => {
@@ -88,7 +103,7 @@ const Pin = ({ pin }) => {
 
 
         )}
-        {postHovered && (
+        { width < 500 || postHovered ?(
           <div
             className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
             style={{ height: "100%" }}
@@ -145,7 +160,7 @@ const Pin = ({ pin }) => {
               )}
             </div>
           </div>
-        )}
+        ):null}
       </div>
       <Link
         to={`/user-profile/${postedBy?._id}`}
