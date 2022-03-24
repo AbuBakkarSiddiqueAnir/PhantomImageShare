@@ -9,6 +9,7 @@ import phantomshare from "../assests/phantomshare.png";
 import { userInfo } from "../utils/userInfo";
 import { userQuery } from "../utils/data";
 import { client } from "../client";
+import avatar from "../assests/avatar.png"
 
 function Home() {
   const [toogleSidebar, setToggleSidebar] = useState(false);
@@ -20,6 +21,7 @@ function Home() {
     client
       .fetch(query)
       .then((data) => {
+        console.log(data)
         setUser(data[0]);
       })
       .catch((err) => {
@@ -27,10 +29,14 @@ function Home() {
       });
   }, []);
 
+  useEffect(()=>{
+    console.log(user)
+  },[])
+
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
       <div className="hidden md:flex h-screen flex-initial">
-        <Sidebar />
+        <Sidebar  setToggleSidebar={setToggleSidebar} user={user && user} />
       </div>
       <div
         className="flex md:hidden flex-row "
@@ -46,7 +52,10 @@ function Home() {
             <img src={phantomshare} alt="phantomshare_logo" className="w-40" />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="user" className="w-14 rounded-lg" />
+
+            
+            {user?.image ? (<img src={user?.image} alt="user" className="w-14 rounded-lg" />):<img src={avatar} alt="user" className="w-14 rounded-lg" />}
+            
           </Link>
         </div>
         {toogleSidebar && (

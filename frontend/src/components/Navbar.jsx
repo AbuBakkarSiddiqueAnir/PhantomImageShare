@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoMdAdd, IoMdSearch } from "react-icons/io";
 import { categories } from "../utils/data";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import avatar from "../assests/avatar.png"
 
 const isNotActiveStyle =
   "flex rounded-2xl flex-none my-1 bg-gray-100 items-center px-3 gap-3 text-gray-700 mx-3 hover:text-black transition-all duration-200 ease-in-out capitalize";
@@ -23,6 +24,11 @@ function Navbar({
     console.log(catagoriesRef.current.scrollLeft);
     catagoriesRef.current.scrollLeft += amount;
   };
+
+
+  useEffect(()=>{
+    console.log(user)
+  },[])
 
   return (
     <>
@@ -47,11 +53,9 @@ function Navbar({
                 to={`user-profile/${user?._id}`}
                 className="hidden md:block"
               >
-                <img
-                  src={user?.image}
-                  alt="User Photo"
-                  className="w-14 h-12 rounded-lg "
-                />
+               
+
+                {user?.image ? (<img src={user?.image} alt="user" className="w-14 rounded-lg" />):<img src={avatar} alt="user" className="w-14 rounded-lg" />}
               </Link>
               <Link
                 to="/create-pin"

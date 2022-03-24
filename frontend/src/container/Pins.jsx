@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import {
@@ -13,17 +13,24 @@ import {
 function Pins({ user }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [exploreBool, setExploreBool] = useState(true);
+
+  useEffect(()=>{
+    console.log(user)
+  },[])
+
   return (
     <div className="px-2 md:px-5 relative ">
-      <div className="bg-gray-50 mb-2 ">
-        <Navbar
-          searchTerm={searchTerm}
-          exploreBool={exploreBool}
-          setExploreBool={setExploreBool}
-          setSearchTerm={setSearchTerm}
-          user={user && user}
-        />
-      </div>
+     {
+       user && (<div className="bg-gray-50 mb-2 ">
+       <Navbar
+         searchTerm={searchTerm}
+         exploreBool={exploreBool}
+         setExploreBool={setExploreBool}
+         setSearchTerm={setSearchTerm}
+         user={user && user}
+       />
+     </div>)
+     } 
       <div className="h-full mt-4">
         <Routes>
           <Route path="/" element={<Feed />} />

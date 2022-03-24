@@ -30,7 +30,7 @@ const Pin = ({ pin }) => {
    }
 
   useEffect(()=>{
-    console.log(width)
+ 
     window.addEventListener("resize", resizeDetector)
     return(() => {
       window.removeEventListener('resize', resizeDetector);

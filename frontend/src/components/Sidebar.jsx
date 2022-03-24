@@ -7,6 +7,7 @@ import phantomshare from "../assests/phantomshare.png";
 
 import { categories, usersQuery } from "../utils/data";
 import { client, urlFor } from "../client";
+import avatar from "../assests/avatar.png"
 
 const isNotActiveStyle =
   "flex text-white items-center py-2 px-5 gap-3   transition-all duration-200 ease-in-out capitalize";
@@ -83,10 +84,8 @@ function Sidebar({ setToggleSidebar, user }) {
                 onClick={handleCloseSidebar}
                 key={user.userName}
               >
-                <img
-                  src={user.image}
-                  className="w-8 h-8 rounded-full shadow-sm"
-                />
+               
+                 {user?.image ? (<img src={user?.image} alt="user" className="w-8 h-8 rounded-lg" />):(<img className="w-8 h-8 rounded-lg"  src={avatar} alt="user_avatar"  />)}
                 <span className="text-white">{user.userName}</span>
               </NavLink>
             ))}
